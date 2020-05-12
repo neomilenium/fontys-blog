@@ -16,7 +16,9 @@ class DatabaseController extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function index(){
-        $users = DB::select('select * from user');
-        return view('home',['users'=>$users]);
-        }
+        $users = DB::select('select * from users');
+        return view('start',['users'=>$users]);
+    }
+
+    
 }

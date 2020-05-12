@@ -20,3 +20,7 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 Route::get('/test','DatabaseController@index');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/start', 'DatabaseController@index');
