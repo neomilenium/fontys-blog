@@ -75,6 +75,10 @@
             filter: blur(5px);
         }
 
+        .user-table {
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+
         .title {
             font-size: 84px;
         }
@@ -126,6 +130,20 @@
     </div>
 
     <div class="content">
+        <div class="user-table">
+            <table>
+                <tr>
+                    <th>Email</th>
+                    <th>Password</th>
+                </tr>
+                @foreach ($users as $user)
+                <tr>
+                    <td>{{ $user->email }}</td>
+                    <td>{{ $user->password }}</td>
+                </tr>
+                @endforeach
+            </table>
+        </div>
         TestTestTestTestTest<br>
         TestTestTestTestTest<br>
         TestTestTestTestTest<br>
