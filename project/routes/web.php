@@ -28,4 +28,8 @@ Route::get('/home', '\App\Http\Controllers\DatabaseController@getUserHome');
 
 Route::get('/profile', '\App\Http\Controllers\DatabaseController@getUserProfile');
 
+Route::get('/blog', function () {
+    return view('blog');
+});
+
 ?>
