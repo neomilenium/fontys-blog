@@ -17,17 +17,23 @@ class DatabaseController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function index(){
-       
+    public function index()
+    {
     }
 
-    public function getUserName() {
+    public function getUserHome()
+    {
         $id = Auth::id();
         $user = DB::table('users')->where('id', $id)->first();
-    
+
         return View::make('home')->with('user', $user);
     }
 
+    public function getUserProfile()
+    {
+        $id = Auth::id();
+        $user = DB::table('users')->where('id', $id)->first();
 
-    
+        return View::make('profile')->with('user', $user);
+    }
 }
