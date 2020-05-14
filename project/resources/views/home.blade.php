@@ -18,14 +18,11 @@
 
 <body>
     <nav>
-        <ul>
-            <li>Welcome</li>
-            <li>
+            <a href="/home"><b>Home</b></a>
+            <div class="nav-right">
+                <a href="/profile"><b>Profile</b></a>
                 <a href="/welcome"><b>Logout</b></a>
-            </li>
-
-
-        </ul>
+            </div>
     </nav>
 
     <div class="content">
@@ -35,7 +32,7 @@
         </div>
         @endif
 
-        
+        <h1>Hello {{ $user->name }} !</h1>
 
     </div>
 </body>
