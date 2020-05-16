@@ -27,7 +27,22 @@
 
     <div class="content">
         <div class="profileBox">
-            <h1>Hello {{ $user->name }} !</h1>
+            <h1>Profile</h1>
+            <h2>Changed successfully!</h2>
+            <table align="center">
+                <tr>
+                    <td style="width: 100px;"><b>Name:</b></td>
+                    <td>{{ $user->name }}</td>
+                </tr>
+                <tr>
+                    <td style="width: 100px;"><b>Email:</b></td>
+                    <td>{{ $user->email }}</td>
+                </tr>
+            </table>
+            <br><br>
+            <a href="/profileEdit" class="editButton">Edit</a>
         </div>
     </div>
 </body>
+
+</html>

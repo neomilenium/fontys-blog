@@ -28,18 +28,21 @@
     <div class="content">
         <div class="profileBox">
             <h1>Profile</h1>
-            <table align="center">
-                <tr>
-                    <td style="width: 100px;"><b>Name:</b></td>
-                    <td>{{ $user->name }}</td>
-                </tr>
-                <tr>
-                    <td style="width: 100px;"><b>Email:</b></td>
-                    <td>{{ $user->email }}</td>
-                </tr>
-            </table>
-            <br><br>
-            <a href="/profileEdit" class="editButton">Edit</a>
+            <form action="{{action('DatabaseController@save')}}" method="post">
+                @csrf
+                <table align="center">
+                    <tr>
+                        <td style="width: 100px;"><b>Name:</b></td>
+                        <td><input name="name" class="nameInput" value="{{ $user->name }}"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 100px;"><b>Email:</b></td>
+                        <td>{{ $user->email }}</td>
+                    </tr>
+                </table>
+                <br><br>
+                <button type="submit">Save</button>
+            </form>
         </div>
     </div>
 </body>

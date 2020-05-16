@@ -36,4 +36,22 @@ class DatabaseController extends BaseController
 
         return View::make('profile')->with('user', $user);
     }
+
+    public function getUserProfileToEdit()
+    {
+        $id = Auth::id();
+        $user = DB::table('users')->where('id', $id)->first();
+
+        return View::make('profileEdit')->with('user', $user);
+    }
+
+    public function save(Request $request)
+    {
+        $id = Auth::id();
+        $name = $request->name;
+        DB::table('users') -> where('id', $id) -> update(['name' => $name]);
+        $user = DB::table('users')->where('id', $id)->first();
+
+        return View::make('profile')->with('user', $user);
+    }
 }

@@ -13,9 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
 Route::get('/welcome', function () {
     return view('welcome');
 });
@@ -27,5 +24,8 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/home', '\App\Http\Controllers\DatabaseController@getUserHome');
 
 Route::get('/profile', '\App\Http\Controllers\DatabaseController@getUserProfile');
+Route::get('/profileEdit', '\App\Http\Controllers\DatabaseController@getUserProfileToEdit');
+
+Route::post('/profileChanged', '\App\Http\Controllers\DatabaseController@save');
 
 ?>
