@@ -21,7 +21,10 @@
         <a href="/home"><b>Home</b></a>
         <div class="nav-right">
             <a href="/profile"><b>Profile</b></a>
-            <a href="/"><b>Logout</b></a>
+            <form style="display:inline-block;" method="POST" action="{{ action('DatabaseController@logout') }}">
+                @csrf
+                <button type="submit" class="logoutButton"><b>Logout</b></button>
+            </form>
         </div>
     </nav>
 
@@ -41,7 +44,7 @@
                     </tr>
                 </table>
                 <br><br>
-                <button type="submit">Save</button>
+                <button class="editButton" type="submit">Save</button>
             </form>
         </div>
     </div>

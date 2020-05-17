@@ -32,3 +32,4 @@ Route::post('/profileChanged', '\App\Http\Controllers\DatabaseController@save');
 Route::post('Logout', '\App\Http\Controllers\DatabaseController@logout');
 
 Auth::routes();
+

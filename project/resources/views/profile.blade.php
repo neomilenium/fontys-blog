@@ -21,9 +21,9 @@
         <a href="/home"><b>Home</b></a>
         <div class="nav-right">
             <a href="/profile"><b>Profile</b></a>
-            <form method="POST" action="{{ action('DatabaseController@logout') }}">
+            <form style="display:inline-block;" method="POST" action="{{ action('DatabaseController@logout') }}">
                 @csrf
-                <button type="submit">Logout</button>
+                <button type="submit" class="logoutButton"><b>Logout</b></button>
             </form>
         </div>
     </nav>

@@ -80,10 +80,11 @@ nav a {
     font-size: 17px;
     color: #CC718F;
     margin: 5px;
+   
 }
 
 .nav-right {
-    float: right;
+    float: right;   
 }
 
 .loginButton {
@@ -107,6 +108,23 @@ nav a {
     padding: 7px;
     padding-left: 30px;
     padding-right: 30px;
+}
+
+.logoutButton {
+    background-color: transparent;
+    border: none;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    color: #CC718F;
+    margin: 5px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 200;
+}
+
+.logoutButton:hover {
+    cursor: pointer;
 }
 
 .forgotPassword {
