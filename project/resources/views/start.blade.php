@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Login</title>
+    <title>Start</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -18,16 +18,15 @@
 
 <body>
     <nav>
-        <a href="/home"><b>Home</b></a>
+        <a href="/"><b>Home</b></a>
         <div class="nav-right">
-            <a href="/profile"><b>Profile</b></a>
-            <a href="/"><b>Logout</b></a>
+            <a href="/login"><b>Login</b></a>
         </div>
     </nav>
 
     <div class="content">
         <div class="profileBox">
-            <h1>Hello {{ $user->name }} !</h1>
+            <h1>Hello!</h1>
         </div>
     </div>
 </body>

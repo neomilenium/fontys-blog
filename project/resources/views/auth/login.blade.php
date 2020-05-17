@@ -18,14 +18,10 @@
 
 <body>
     <nav>
-        <ul>
-            <li>Welcome</li>
-            <li>
-                <a href="/login"><b>Login</b></a>
-            </li>
-
-
-        </ul>
+        <a href="/"><b>Home</b></a>
+        <div class="nav-right">
+            <a href="/login"><b>Login</b></a>
+        </div>
     </nav>
 
     <div class="content">

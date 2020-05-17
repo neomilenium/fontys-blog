@@ -21,6 +21,7 @@ class DatabaseController extends BaseController
     {
     }
 
+
     public function getUserHome()
     {
         $id = Auth::id();
@@ -49,9 +50,15 @@ class DatabaseController extends BaseController
     {
         $id = Auth::id();
         $name = $request->name;
-        DB::table('users') -> where('id', $id) -> update(['name' => $name]);
+        DB::table('users')->where('id', $id)->update(['name' => $name]);
         $user = DB::table('users')->where('id', $id)->first();
 
         return View::make('profile')->with('user', $user);
+    }
+
+    public function logout(Request $request)
+    {
+        $request->session()->flush();
+        return redirect('/');
     }
 }

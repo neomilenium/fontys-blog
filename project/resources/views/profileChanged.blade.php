@@ -21,7 +21,7 @@
         <a href="/home"><b>Home</b></a>
         <div class="nav-right">
             <a href="/profile"><b>Profile</b></a>
-            <a href="/welcome"><b>Logout</b></a>
+            <a href="/"><b>Logout</b></a>
         </div>
     </nav>
 

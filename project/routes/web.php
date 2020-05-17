@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,13 +17,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/welcome', function () {
-    return view('welcome');
-});
-
-Auth::routes();
-
-Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+Route::get('/', ['as' => 'start', function()
+{
+    return view('/start');
+}]);
 
 Route::get('/home', '\App\Http\Controllers\DatabaseController@getUserHome');
 
@@ -28,4 +29,6 @@ Route::get('/profileEdit', '\App\Http\Controllers\DatabaseController@getUserProf
 
 Route::post('/profileChanged', '\App\Http\Controllers\DatabaseController@save');
 
-?>
+Route::post('Logout', '\App\Http\Controllers\DatabaseController@logout');
+
+Auth::routes();
