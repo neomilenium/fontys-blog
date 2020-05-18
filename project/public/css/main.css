@@ -41,6 +41,17 @@ html, body {
     background-color: rgba(255, 255, 255, 0.7);
 }
 
+.registerBox {
+    background-color: rgba(255, 255, 255, 0.7);
+    max-width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 7%;
+    padding: 50px;
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+
 .loginBox {
     background-color: rgba(255, 255, 255, 0.7);
     max-width: 30%;
@@ -150,4 +161,8 @@ nav a {
 
 td {
     text-align: left;
+}
+
+.fileUpload {
+    margin: 0 auto;
 }

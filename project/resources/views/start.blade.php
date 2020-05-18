@@ -20,6 +20,7 @@
     <nav>
         <a href="/"><b>Home</b></a>
         <div class="nav-right">
+            <a href="/register"><b>Sign Up</b></a>
             <a href="/login"><b>Login</b></a>
         </div>
     </nav>

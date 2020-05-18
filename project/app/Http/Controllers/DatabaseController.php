@@ -12,6 +12,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use View;
+use Illuminate\Support\Facades\Storage;
 
 class DatabaseController extends BaseController
 {
@@ -34,6 +35,13 @@ class DatabaseController extends BaseController
     {
         $id = Auth::id();
         $user = DB::table('users')->where('id', $id)->first();
+      
+        
+
+        $data = [
+            'user'  => $user,
+            'image' => $image
+        ];
 
         return View::make('profile')->with('user', $user);
     }
@@ -50,6 +58,10 @@ class DatabaseController extends BaseController
     {
         $id = Auth::id();
         $name = $request->name;
+        $imageName = $name . '.jpg';
+        $request->file('profilePicture')->storeAs($id, 'profilePicture.jpg');
+        
+        
         DB::table('users')->where('id', $id)->update(['name' => $name]);
         $user = DB::table('users')->where('id', $id)->first();
 

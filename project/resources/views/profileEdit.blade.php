@@ -31,8 +31,9 @@
     <div class="content">
         <div class="profileBox">
             <h1>Profile</h1>
-            <form action="{{action('DatabaseController@save')}}" method="post">
+            <form action="{{action('DatabaseController@save')}}" method="post" enctype="multipart/form-data">
                 @csrf
+                <input type="file" name="profilePicture">
                 <table align="center">
                     <tr>
                         <td style="width: 100px;"><b>Name:</b></td>
