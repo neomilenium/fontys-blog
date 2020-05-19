@@ -19,6 +19,9 @@ use Illuminate\Http\Request;
 
 Route::get('/', ['as' => 'start', function()
 {
+    if (Auth::check()) {
+        return redirect('/home');
+    }
     return view('/start');
 }]);
 
