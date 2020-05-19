@@ -38,10 +38,10 @@ class DatabaseController extends BaseController
         $user = DB::table('users')->where('id', $id)->first();
         
         $url = "http://localhost:8000/storage/profilePicture.png";
-        $exists = Storage::disk('public')->exists('/storage/' . $id . '/profilePicture.jpg');
+        $exists = Storage::disk('public')->exists('profilePicture.png');
         if ($exists) {
             $pictureUploaded = true;
-            $url = "http://localhost:8000/storage/'.$id.'/profilePicture.png";
+            $url = "http://localhost:8000/storage/$id/profilePicture.png";
         }
 
         $data = [
@@ -58,10 +58,10 @@ class DatabaseController extends BaseController
         $user = DB::table('users')->where('id', $id)->first();
 
         $url = "http://localhost:8000/storage/profilePicture.png";
-        $exists = Storage::disk('public')->exists('/storage/' . $id . '/profilePicture.jpg');
+        $exists = Storage::disk('public')->exists('profilePicture.png');
         if ($exists) {
             $pictureUploaded = true;
-            $url = "http://localhost:8000/storage/'.$id.'/profilePicture.png";
+            $url = "http://localhost:8000/storage/$id/profilePicture.png";
         }
 
         $data = [
@@ -77,14 +77,26 @@ class DatabaseController extends BaseController
     {
         $id = Auth::id();
         $name = $request->name;
-        $imageName = $name . '.jpg';
-        $request->file('profilePicture')->storeAs($id, 'profilePicture.jpg');
-
-
+        if ($request->hasFile('profilePicture')) {
+            $request->file('profilePicture')->storeAs('/public/'.$id, 'profilePicture.png');
+        }
+       
         DB::table('users')->where('id', $id)->update(['name' => $name]);
         $user = DB::table('users')->where('id', $id)->first();
 
-        return View::make('profile')->with('user', $user);
+        $url = "http://localhost:8000/storage/profilePicture.png";
+        $exists = Storage::disk('public')->exists('profilePicture.png');
+        if ($exists) {
+            $pictureUploaded = true;
+            $url = "http://localhost:8000/storage/$id/profilePicture.png";
+        }
+
+        $data = [
+            'user'  => $user,
+            'url' => $url,
+        ];
+
+        return View::make('profile')->with($data);
     }
 
     public function logout(Request $request)
