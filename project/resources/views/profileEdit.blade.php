@@ -31,6 +31,7 @@
     <div class="content">
         <div class="profileBox">
             <h1>Profile</h1>
+            <img style="max-width: 200px;" src="{{$url}}" alt="ProfilePicture" title=""><br><br>
             <form action="{{action('DatabaseController@save')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <input type="file" name="profilePicture">

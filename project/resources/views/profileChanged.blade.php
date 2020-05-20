@@ -32,6 +32,7 @@
         <div class="profileBox">
             <h1>Profile</h1>
             <h2>Changed successfully!</h2>
+            <img style="max-width: 200px;" src="{{$url}}" alt="ProfilePicture" title=""><br><br>
             <table align="center">
                 <tr>
                     <td style="width: 100px;"><b>Name:</b></td>
