@@ -166,3 +166,35 @@ td {
 .fileUpload {
     margin: 0 auto;
 }
+
+.blogTopBar {
+    display: flex;
+
+}
+
+.blog {
+    background-color: rgba(255, 255, 255, 0.7);
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 7%;
+    padding: 50px;
+
+}
+
+.addBlog {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    border: none;
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 15px;
+    text-decoration: none;
+    padding: 7px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin: 30px;
+}
+
+.addBlog:hover {
+    cursor: pointer;
+}

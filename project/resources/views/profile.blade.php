@@ -19,6 +19,7 @@
 <body>
     <nav>
         <a href="/home"><b>Home</b></a>
+        <a href="/blog"><b>Blog</b></a>
         <div class="nav-right">
             <a href="/profile"><b>Profile</b></a>
             <form style="display:inline-block;" method="POST" action="{{ action('DatabaseController@logout') }}">

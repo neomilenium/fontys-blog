@@ -21,6 +21,10 @@ class DatabaseController extends BaseController
 
     public function index()
     {
+        if (Auth::check()) {
+            return redirect('/home');
+        }
+        return view('/start');
     }
 
 
@@ -101,7 +105,12 @@ class DatabaseController extends BaseController
 
     public function logout(Request $request)
     {
+        $id = Auth::id();
         $request->session()->flush();
+        $user = DB::table('users')->where('id', $id)->limit(1);
+        $user->update(['remember_token' => null]);
         return redirect('/');
     }
+
 }
+

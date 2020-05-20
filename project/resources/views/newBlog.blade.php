@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Login</title>
+    <title>Blog</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -30,22 +30,11 @@
     </nav>
 
     <div class="content">
-        <div class="profileBox">
-            <h1>Profile</h1>
-            <h2>Changed successfully!</h2>
-            <img style="max-width: 200px;" src="{{$url}}" alt="ProfilePicture" title=""><br><br>
-            <table align="center">
-                <tr>
-                    <td style="width: 100px;"><b>Name:</b></td>
-                    <td>{{ $user->name }}</td>
-                </tr>
-                <tr>
-                    <td style="width: 100px;"><b>Email:</b></td>
-                    <td>{{ $user->email }}</td>
-                </tr>
-            </table>
-            <br><br>
-            <a href="/profileEdit" class="editButton">Edit</a>
+        <div class="blogTopBar">
+            <button class="addBlog">New blog</button>
+        </div>
+        <div class="blog">
+            Here will be the blog.
         </div>
     </div>
 </body>
