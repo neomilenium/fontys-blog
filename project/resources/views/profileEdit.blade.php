@@ -35,7 +35,7 @@
             <img style="max-width: 200px;" src="{{$url}}" alt="ProfilePicture" title=""><br><br>
             <form action="{{action('DatabaseController@save')}}" method="post" enctype="multipart/form-data">
                 @csrf
-                <input type="file" name="profilePicture">
+                <input type="file" name="profilePicture" class="profilePictureInput">
                 <table align="center">
                     <tr>
                         <td style="width: 100px;"><b>Name:</b></td>

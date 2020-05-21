@@ -120,6 +120,9 @@ nav a {
     padding-left: 30px;
     padding-right: 30px;
 }
+.editButton:hover {
+    cursor: pointer;
+}
 
 .logoutButton {
     background-color: transparent;
@@ -135,6 +138,20 @@ nav a {
 }
 
 .logoutButton:hover {
+    cursor: pointer;
+}
+
+.resetButton {
+    background-color: #CC718F;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 15px;
+    text-decoration: none;
+    padding: 8px;
+    width: 150px;
+    border: none;
+}
+.resetButton:hover {
     cursor: pointer;
 }
 
@@ -196,5 +213,20 @@ td {
 }
 
 .addBlog:hover {
+    cursor: pointer;
+}
+
+.profilePictureInput::-webkit-file-upload-button {
+    background-color: #CC718F;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 10px;
+    text-decoration: none;
+    padding: 3px;
+    width: 90px;
+    border: none;
+}
+
+.profilePictureInput::-webkit-file-upload-button:hover {
     cursor: pointer;
 }
