@@ -12,11 +12,17 @@
 
     <!-- Styles -->
     <link rel="stylesheet" type="text/css" href="{{ url('/css/main.css') }}" />
+<<<<<<< HEAD
+=======
+    <link rel="stylesheet" type="text/css" href="{{ url('/css/blog.css') }}" />
+
+>>>>>>> origin/master
 
 
 </head>
 
 <body>
+<<<<<<< HEAD
     <nav>
         <a href="/home"><b>Home</b></a>
         <a href="/blog"><b>Blog</b></a>
@@ -40,3 +46,7 @@
 </body>
 
 </html>
+=======
+    <p>IT WORKS??? </p>
+</body>
+>>>>>>> origin/master
