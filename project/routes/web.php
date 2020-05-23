@@ -20,7 +20,9 @@ use Illuminate\Http\Request;
 Route::get('/', '\App\Http\Controllers\DatabaseController@index');
 
 Route::get('/home', '\App\Http\Controllers\DatabaseController@getUserHome');
+
 Route::get('/blog', '\App\Http\Controllers\BlogController@index');
+Route::get('/createNewBlog', '\App\Http\Controllers\BlogController@newBlog');
 
 Route::get('/profile', '\App\Http\Controllers\DatabaseController@getUserProfile');
 Route::get('/profileEdit', '\App\Http\Controllers\DatabaseController@getUserProfileToEdit');

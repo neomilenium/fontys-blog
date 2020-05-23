@@ -37,9 +37,7 @@ html, body {
     filter: blur(5px);
 }
 
-.user-table {
-    background-color: rgba(255, 255, 255, 0.7);
-}
+
 
 .registerBox {
     background-color: rgba(255, 255, 255, 0.7);
@@ -61,16 +59,6 @@ html, body {
     padding: 50px;
     padding-top: 30px;
     padding-bottom: 10px;
-}
-
-.profileBox {
-    background-color: rgba(255, 255, 255, 0.7);
-    max-width: 30%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 7%;
-    padding: 50px;
-    padding-top: 30px;
 }
 
 nav {
@@ -107,21 +95,6 @@ nav a {
     padding: 8px;
     width: 100px;
     border: none;
-}
-
-.editButton {
-    background-color: #CC718F;
-    border-radius: 10px;
-    border: none;
-    color: #ffffff;
-    font-size: 15px;
-    text-decoration: none;
-    padding: 7px;
-    padding-left: 30px;
-    padding-right: 30px;
-}
-.editButton:hover {
-    cursor: pointer;
 }
 
 .logoutButton {
@@ -184,49 +157,13 @@ td {
     margin: 0 auto;
 }
 
-.blogTopBar {
-    display: flex;
-
-}
-
-.blog {
+.homeBox {
     background-color: rgba(255, 255, 255, 0.7);
-    max-width: 80%;
+    max-width: 30%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 7%;
     padding: 50px;
-
+    padding-top: 30px;
 }
 
-.addBlog {
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 10px;
-    border: none;
-    color: rgba(0, 0, 0, 0.8);
-    font-size: 15px;
-    text-decoration: none;
-    padding: 7px;
-    padding-left: 30px;
-    padding-right: 30px;
-    margin: 30px;
-}
-
-.addBlog:hover {
-    cursor: pointer;
-}
-
-.profilePictureInput::-webkit-file-upload-button {
-    background-color: #CC718F;
-    border-radius: 5px;
-    color: #ffffff;
-    font-size: 10px;
-    text-decoration: none;
-    padding: 3px;
-    width: 90px;
-    border: none;
-}
-
-.profilePictureInput::-webkit-file-upload-button:hover {
-    cursor: pointer;
-}

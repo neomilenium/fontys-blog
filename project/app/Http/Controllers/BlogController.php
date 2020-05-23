@@ -20,4 +20,11 @@ class BlogController extends BaseController
 
         return View::make('blog')->with('user', $user);
     }
+
+    public function newBlog() {
+        $id = Auth::id();
+        $user = DB::table('users')->where('id', $id)->first();
+
+        return View::make('newBlog')->with('user', $user);
+    }
 }

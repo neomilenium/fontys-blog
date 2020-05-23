@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" type="text/css" href="{{ url('/css/main.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url('/css/profile.css') }}" />
 
 
 </head>
@@ -33,7 +33,7 @@
         <div class="profileBox">
             <h1>Profile</h1>
             <h2>Changed successfully!</h2>
-            <img style="max-width: 200px;" src="{{$url}}" alt="ProfilePicture" title=""><br><br>
+            <img style="max-width: 200px; border-radius: 50%; border: 1px solid black;" src="{{$url}}" alt="ProfilePicture" title=""><br><br>
             <table align="center">
                 <tr>
                     <td style="width: 100px;"><b>Name:</b></td>

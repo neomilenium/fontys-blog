@@ -11,18 +11,13 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" type="text/css" href="{{ url('/css/main.css') }}" />
-<<<<<<< HEAD
-=======
     <link rel="stylesheet" type="text/css" href="{{ url('/css/blog.css') }}" />
 
->>>>>>> origin/master
 
 
 </head>
 
 <body>
-<<<<<<< HEAD
     <nav>
         <a href="/home"><b>Home</b></a>
         <a href="/blog"><b>Blog</b></a>
@@ -37,7 +32,7 @@
 
     <div class="content">
         <div class="blogTopBar">
-            <button class="addBlog">New blog</button>
+            <a href="/createNewBlog" class="addBlog">Create New Blog</a>
         </div>
         <div class="blog">
             Here will be the blog.
@@ -46,7 +41,3 @@
 </body>
 
 </html>
-=======
-    <p>IT WORKS??? </p>
-</body>
->>>>>>> origin/master

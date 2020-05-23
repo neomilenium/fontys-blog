@@ -30,7 +30,7 @@
     </nav>
 
     <div class="content">
-        <div class="profileBox">
+        <div class="homeBox">
             <h1>Hello {{ $user->name }} !</h1>
         </div>
     </div>

@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" type="text/css" href="{{ url('/css/main.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url('/css/blog.css') }}" />
 
 
 </head>
@@ -30,11 +30,12 @@
     </nav>
 
     <div class="content">
-        <div class="blogTopBar">
-            <button class="addBlog">New blog</button>
-        </div>
-        <div class="blog">
-            Here will be the blog.
+        <div class="blogBox">
+            <h1>Create a new blog</h1>
+            <input type="file" name="blogPicture" class="blogPictureInput"><br><br>
+            <b>Title: </b><input class="titleInput"><br><br>
+            <textarea class="blogTextArea"></textarea><br><br>
+            <button class="createButton" type="submit">Create</button>
         </div>
     </div>
 </body>
