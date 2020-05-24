@@ -34,9 +34,17 @@
         <div class="blogTopBar">
             <a href="/createNewBlog" class="addBlog">Create New Blog</a>
         </div>
+        @foreach($blogs as $blog)
+
         <div class="blog">
-            Here will be the blog.
+            @if ($blog->img_url != null)
+            <img style="max-width: 800px;" src="{{$blog->img_url}}" alt="ProfilePicture" title=""><br><br>
+            @endif
+            <h1>{{$blog->title}}</h1>
+            {{$blog->text}}
         </div>
+        @endforeach
+
     </div>
 </body>
 

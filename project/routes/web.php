@@ -23,10 +23,10 @@ Route::get('/home', '\App\Http\Controllers\DatabaseController@getUserHome');
 
 Route::get('/blog', '\App\Http\Controllers\BlogController@index');
 Route::get('/createNewBlog', '\App\Http\Controllers\BlogController@newBlog');
+Route::any('/blogCreated', '\App\Http\Controllers\BlogController@create');
 
 Route::get('/profile', '\App\Http\Controllers\DatabaseController@getUserProfile');
 Route::get('/profileEdit', '\App\Http\Controllers\DatabaseController@getUserProfileToEdit');
-
 Route::post('/profileChanged', '\App\Http\Controllers\DatabaseController@save');
 
 Route::post('Logout', '\App\Http\Controllers\DatabaseController@logout');

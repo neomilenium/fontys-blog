@@ -32,10 +32,28 @@
     <div class="content">
         <div class="blogBox">
             <h1>Create a new blog</h1>
-            <input type="file" name="blogPicture" class="blogPictureInput"><br><br>
-            <b>Title: </b><input class="titleInput"><br><br>
-            <textarea class="blogTextArea"></textarea><br><br>
-            <button class="createButton" type="submit">Create</button>
+            <form action="{{action('BlogController@create')}}" method="post" enctype="multipart/form-data">
+                @csrf
+                <table align="center">
+                    <tr>
+                        <td>
+                            <input type="file" name="blogPicture" class="blogPictureInput"><br><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>Title: </b><input name="title" class="titleInput"><br><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <textarea name="text" class="blogTextArea"></textarea><br><br>
+                        </td>
+                    </tr>
+
+                </table>
+                <button class="createButton" type="submit">Create</button>
+            </form>
         </div>
     </div>
 </body>

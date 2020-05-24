@@ -169,3 +169,7 @@ nav a {
 .createButton:hover {
     cursor: pointer;
 }
+
+td {
+    text-align: left;
+}
