@@ -38,10 +38,18 @@
 
         <div class="blog">
             @if ($blog->img_url != null)
-            <img style="max-width: 800px;" src="{{$blog->img_url}}" alt="ProfilePicture" title=""><br><br>
+            <div class="blogFlex">
+                <div class="imageContainer">
+                    <img class="blogImage" src="{{$blog->img_url}}" alt="ProfilePicture" title=""><br><br>
+                </div>
+                <div class="textContainer">
+                    {{$blog->user_name}}, {{$blog->created_at}}
+                    <h1>{{$blog->title}}</h1>
+                    {{$blog->text}}
+                </div>
+            </div>
             @endif
-            <h1>{{$blog->title}}</h1>
-            {{$blog->text}}
+
         </div>
         @endforeach
 

@@ -20,7 +20,7 @@ class BlogController extends BaseController
     public function index()
     {
         $id = Auth::id();
-        $blogs = DB::table('blogs')->where('user_id', '=', $id)->orderBy('created_at', 'asc')->get(); 
+        $blogs = DB::table('blogs')->where('user_id', '=', $id)->orderBy('created_at', 'desc')->get(); 
 
         return View::make('blog')->with('blogs', $blogs);
     }
@@ -38,6 +38,9 @@ class BlogController extends BaseController
         $blog = new Blog;
 
         $id = Auth::id();
+        $user = DB::table('users')->where('id', $id)->first();
+        $name = $user->name;
+
         $title = $request->title;
         $text = $request->text;
 
@@ -48,8 +51,8 @@ class BlogController extends BaseController
             $blog->img_url = $url;
         }
 
-
         $blog->user_id = $id;
+        $blog->user_name = $name;
         $blog->title = $title;
         $blog->text = $text;
 
