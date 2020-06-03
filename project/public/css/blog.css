@@ -110,6 +110,14 @@ nav a {
     flex-wrap: wrap;
 }
 
+.blogFlex a {
+    text-decoration: none;
+}
+
+.blogFlex a:visited {
+    color: black;
+}
+
 .textContainer {
     flex: 1 0 40%;
     text-align: left;
@@ -120,16 +128,20 @@ nav a {
     flex: 1 0 50%;
 }
 
-.blogImage {
+.blogImageWithBlur {
     max-width: 500px;
 }
 
-.blogImage:hover {
+.blogImageWithBlur:hover {
     -webkit-filter: blur(4px);
     -moz-filter: blur(4px);
     -o-filter: blur(4px);
     -ms-filter: blur(4px);
     filter: blur(4px);
+}
+
+.blogImage {
+    max-width: 500px;
 }
 
 .addBlog {

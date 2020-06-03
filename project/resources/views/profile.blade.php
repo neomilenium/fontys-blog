@@ -19,7 +19,7 @@
 <body>
     <nav>
         <a href="/home"><b>Home</b></a>
-        <a href="/blog"><b>Blog</b></a>
+        <a href="/blogs"><b>Blog</b></a>
         <div class="nav-right">
             <a href="/profile"><b>Profile</b></a>
             <form style="display:inline-block;" method="POST" action="{{ action('DatabaseController@logout') }}">
@@ -31,21 +31,35 @@
 
     <div class="content">
         <div class="profileBox">
-            <h1>Profile</h1>
-            <img style="max-width: 200px; border-radius: 50%; border: 1px solid black;" src="{{$url}}" alt="ProfilePicture" title=""><br><br>
-            <table align="center">
-                <tr>
-                    <td style="width: 100px;"><b>Name:</b></td>
-                    <td>{{ $user->name }}</td>
-                </tr>
-                <tr>
-                    <td style="width: 100px;"><b>Email:</b></td>
-                    <td>{{ $user->email }}</td>
-                </tr>
-            </table>
-            <br><br>
-            <a href="/profileEdit" class="editButton">Edit</a>
+            <div class="profileContainer">
+                <h1>Profile</h1>
+                <img style="max-width: 200px; border-radius: 50%; border: 1px solid black;" src="{{$url}}" alt="ProfilePicture" title=""><br><br>
+                <table align="center">
+                    <tr>
+                        <td style="width: 100px;"><b>Name:</b></td>
+                        <td>{{ $user->name }}</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 100px;"><b>Email:</b></td>
+                        <td>{{ $user->email }}</td>
+                    </tr>
+                </table>
+                <br><br>
+                <a href="/profileEdit" class="editButton">Edit</a>
+            </div>
+            <div class="blogContainer">
+                @foreach($blogs as $blog)
+
+                @if ($blog->img_url != null)
+                <a href="{{ route('blog', ['id' => $blog->id]) }}">
+                    <img class="blogImage" src="{{$blog->img_url}}" alt="ProfilePicture" title="">
+                </a>
+                @endif
+                @endforeach
+            </div>
+
         </div>
+    </div>
     </div>
 </body>
 

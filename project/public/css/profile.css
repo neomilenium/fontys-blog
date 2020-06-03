@@ -39,12 +39,33 @@ html, body {
 
 .profileBox {
     background-color: rgba(255, 255, 255, 0.7);
-    max-width: 30%;
+    max-width: 60%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 7%;
     padding: 50px;
     padding-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+.profileContainer {
+    flex: 40%;
+    border-right: thin solid black;
+    margin-right: 3%;
+}
+
+.blogContainer {
+    flex: 50%;
+    text-align: left;
+    
+}
+
+.blogImage {
+    width: 100px;
+    height:100px;
+    padding: 2px;
 }
 
 nav {

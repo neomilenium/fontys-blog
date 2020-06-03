@@ -34,29 +34,24 @@
         <div class="blogTopBar">
             <a href="/createNewBlog" class="addBlog">Create New Blog</a>
         </div>
-        @foreach($blogs as $blog)
+
 
         <div class="blog">
             @if ($blog->img_url != null)
             <div class="blogFlex">
                 <div class="imageContainer">
-                    <a href="{{ route('blog', ['id' => $blog->id]) }}">
-                        <img class="blogImageWithBlur" src="{{$blog->img_url}}" alt="ProfilePicture" title="">
-                    </a>
-                    <br><br>
+                    <img class="blogImage" src="{{$blog->img_url}}" alt="ProfilePicture" title=""><br><br>
                 </div>
                 <div class="textContainer">
                     {{$blog->user_name}}, {{$blog->created_at}}
-                    <a href="{{ route('blog', ['id' => $blog->id]) }}">
-                        <h1>{{$blog->title}}</h1>
-                    </a>
+                    <h1>{{$blog->title}}</h1>
                     {{$blog->text}}
                 </div>
             </div>
             @endif
 
         </div>
-        @endforeach
+
 
     </div>
 </body>
