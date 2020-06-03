@@ -51,7 +51,11 @@
                 @foreach($blogs as $blog)
 
                 @if ($blog->img_url != null)
+<<<<<<< HEAD
                 <a href="{{ route('blog', ['id' => $blog->id]) }}">
+=======
+                <a>
+>>>>>>> 8270ea5de57ee7305a9edb19d5d22cfbe0a1371f
                     <img class="blogImage" src="{{$blog->img_url}}" alt="ProfilePicture" title="">
                 </a>
                 @endif
