@@ -30,9 +30,9 @@
     </nav>
 
     <div class="content">
-        <div class="profileBox">
+        <div class="profileEditBox">
             <h1>Profile</h1>
-            <img style="max-width: 200px; border-radius: 50%; border: 1px solid black;" src="{{$url}}" alt="ProfilePicture" title=""><br><br>
+            <img style="max-width: 200px; max-height: 200px; border-radius: 50%; border: 1px solid black;" src="{{$url}}" alt="ProfilePicture" title=""><br><br>
             <form action="{{action('DatabaseController@save')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <input type="file" name="profilePicture" class="profilePictureInput">

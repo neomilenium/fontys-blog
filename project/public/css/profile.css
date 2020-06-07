@@ -58,14 +58,27 @@ html, body {
 
 .blogContainer {
     flex: 50%;
-    text-align: left;
-    
+    text-align: left;   
+}
+
+.blogContainer a {
+    text-decoration: none;
 }
 
 .blogImage {
     width: 100px;
     height:100px;
     padding: 2px;
+}
+
+.profileEditBox {
+    background-color: rgba(255, 255, 255, 0.7);
+    max-width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 7%;
+    padding: 50px;
+    padding-top: 30px;
 }
 
 nav {
