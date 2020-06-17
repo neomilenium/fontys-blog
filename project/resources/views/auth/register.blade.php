@@ -50,7 +50,7 @@
 
                 <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label><br>
                 <input id="password" type="password" class="loginInput" name="password" required autocomplete="new-password">
-                <br>
+                <br><br>
                 @error('password')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -60,6 +60,8 @@
                 <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label><br>
                 <input id="password-confirm" type="password" class="loginInput" name="password_confirmation" required autocomplete="new-password">
                 <br><br>
+
+                <input type="hidden" id="role" name="role" value="user">
 
                 <button type="submit" class="loginButton">
                     {{ __('Sign Up') }}

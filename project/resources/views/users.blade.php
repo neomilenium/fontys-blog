@@ -30,13 +30,14 @@
     </nav>
 
     <div class="content">
-        <div class="homeBox">
+        <div class="userBox">
             <h1>Users</h1>
             <table class="userTable">
                 <tr>
                     <th style="width: 50px;">ID</th>
                     <th style="width: 150px;">Name</th>
                     <th style="width: 150px;">Email</th>
+                    <th style="width: 150px;">Role</th>
                     <th style="width: 200px;"></th>
                 </tr>
                 @foreach($users as $user)
@@ -44,6 +45,7 @@
                     <td>{{$user->id}}</td>
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
+                    <td>{{$user->role}}</td>
                 </tr>
                 @endforeach
             </table>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use View;
 
 class HomeController extends Controller
 {
@@ -25,6 +26,14 @@ class HomeController extends Controller
     public function index(){
         $users = DB::select('select * from users');
         return view('home',['users'=>$users]);
+    }
+
+    public function showUsers(){
+
+        $users = DB::table('users')->get();
+
+        return View::make('users')->with('users', $users);
+
     }
 }
 ?>
