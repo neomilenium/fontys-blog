@@ -19,7 +19,10 @@
 <body>
     <nav>
         <a href="/home"><b>Home</b></a>
-        <a href="/blogs"><b>Blog</b></a>
+        <a href="/blogs"><b>Blogs</b></a>
+        @if ($isAdmin)
+        <a href="/users"><b>Users</b></a>
+        @endif
         <div class="nav-right">
             <a href="/profile"><b>Profile</b></a>
             <form style="display:inline-block;" method="POST" action="{{ action('DatabaseController@logout') }}" enctype="multipart/form-data">

@@ -25,8 +25,11 @@ Route::get('/blogs', '\App\Http\Controllers\BlogController@index');
 Route::get('/createNewBlog', '\App\Http\Controllers\BlogController@newBlog');
 Route::any('/blogCreated', '\App\Http\Controllers\BlogController@create');
 Route::get('blog/{id}', ["uses" => '\App\Http\Controllers\BlogController@showBlog', "as" => 'blog']);
+Route::get('/blog/pdf/{id}', ["uses" => '\App\Http\Controllers\BlogController@exportPdf', "as" => 'exportPdf']);
+
 
 Route::get('/users', '\App\Http\Controllers\HomeController@showUsers');
+
 
 Route::get('/profile', '\App\Http\Controllers\DatabaseController@getUserProfile');
 Route::get('/profileEdit', '\App\Http\Controllers\DatabaseController@getUserProfileToEdit');

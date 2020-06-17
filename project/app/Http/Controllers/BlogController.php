@@ -13,6 +13,8 @@ use View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManagerStatic as Image;
+use Illuminate\Support\Str;
+use PDF;
 
 class BlogController extends BaseController
 {
@@ -23,7 +25,10 @@ class BlogController extends BaseController
         $id = Auth::id();
         $blogs = DB::table('blogs')->where('user_id', '=', $id)->orderBy('created_at', 'desc')->get();
 
-        return View::make('blog')->with('blogs', $blogs);
+        $role = DB::table('users')->where('id', $id)->pluck('role');
+        $isAdmin = Str::contains($role, 'admin');
+       
+        return View::make('blog', compact('isAdmin', 'blogs'));
     }
 
     public function newBlog()
@@ -31,7 +36,10 @@ class BlogController extends BaseController
         $id = Auth::id();
         $user = DB::table('users')->where('id', $id)->first();
 
-        return View::make('newBlog')->with('user', $user);
+        $role = DB::table('users')->where('id', $id)->pluck('role');
+        $isAdmin = Str::contains($role, 'admin');
+       
+        return View::make('newBlog', compact('isAdmin', 'user'));
     }
 
     public function create(Request $request)
@@ -70,14 +78,40 @@ class BlogController extends BaseController
 
         $blogs = DB::table('blogs')->where('user_id', '=', $id)->orderBy('created_at', 'desc')->get();
 
-        return View::make('blog')->with('blogs', $blogs);
+        $role = DB::table('users')->where('id', $id)->pluck('role');
+        $isAdmin = Str::contains($role, 'admin');
+       
+        return View::make('blog', compact('isAdmin', 'blogs'));
+
     }
 
     public function showBlog($blog_id)
     {
         $blog = DB::table('blogs')->where('id', '=', $blog_id)->first();
 
-        return View::make('blogDetail')->with('blog', $blog);
+        $id = Auth::id();
+        $role = DB::table('users')->where('id', $id)->pluck('role');
+        $isAdmin = Str::contains($role, 'admin');
+       
+        return View::make('blogDetail', compact('isAdmin', 'blog'));
+
+    }
+
+    public function exportPdf($blog_id)
+    {
+        $blog = DB::table('blogs')->where('id', '=', $blog_id)->first();
+
+        $id = Auth::id();
+        $blogs = DB::table('blogs')->where('user_id', '=', $id)->orderBy('created_at', 'desc')->get();
+        $role = DB::table('users')->where('id', $id)->pluck('role');
+        $isAdmin = Str::contains($role, 'admin');
+        
+        $pdf = PDF::loadView('blogAsPdf', compact('blog'));
+        
+        $pdf->save(storage_path() . 'blog.pdf');
+    
+        
+        return $pdf->download('blog.pdf');
     }
 
 }

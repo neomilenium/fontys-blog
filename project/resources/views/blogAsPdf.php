@@ -18,27 +18,7 @@
 </head>
 
 <body>
-    <nav>
-        <a href="/home"><b>Home</b></a>
-        <a href="/blogs"><b>Blogs</b></a>
-        @if ($isAdmin)
-        <a href="/users"><b>Users</b></a>
-        @endif
-        <div class="nav-right">
-            <a href="/profile"><b>Profile</b></a>
-            <form style="display:inline-block;" method="POST" action="{{ action('DatabaseController@logout') }}">
-                @csrf
-                <button type="submit" class="logoutButton"><b>Logout</b></button>
-            </form>
-        </div>
-    </nav>
-
     <div class="content">
-        <div class="blogTopBar">
-            <a href="{{ route('exportPdf', ['id' => $blog->id])}}" class="addBlog"><b>Export as PDF</b></a>
-        </div>
-
-
         <div class="blog">
             @if ($blog->img_url != null)
             <div class="blogFlex">

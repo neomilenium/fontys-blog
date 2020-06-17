@@ -19,7 +19,10 @@
 <body>
     <nav>
         <a href="/home"><b>Home</b></a>
-        <a href="/blogs"><b>Blog</b></a>
+        <a href="/blogs"><b>Blogs</b></a>
+        @if ($isAdmin)
+        <a href="/users"><b>Users</b></a>
+        @endif
         <div class="nav-right">
             <a href="/profile"><b>Profile</b></a>
             <form style="display:inline-block;" method="POST" action="{{ action('DatabaseController@logout') }}">
@@ -33,7 +36,7 @@
         <div class="profileBox">
             <div class="profileContainer">
                 <h1>Profile</h1>
-                <img style="max-width: 200px; border-radius: 50%; border: 1px solid black;" src="{{$url}}" alt="ProfilePicture" title=""><br><br>
+                <img style="max-width: 200px; border-radius: 50%; border: 1px solid black;" src="{{$url ?? ''}}" alt="ProfilePicture" title=""><br><br>
                 <table align="center">
                     <tr>
                         <td style="width: 100px;"><b>Name:</b></td>

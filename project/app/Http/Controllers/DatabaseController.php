@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use View;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Filesystem\FilesystemManager;
+use Illuminate\Support\Str;
 
 class DatabaseController extends BaseController
 {
@@ -32,7 +33,10 @@ class DatabaseController extends BaseController
         $id = Auth::id();
         $user = DB::table('users')->where('id', $id)->first();
 
-        return View::make('home')->with('user', $user);
+        $role = DB::table('users')->where('id', $id)->pluck('role');
+        $isAdmin = Str::contains($role, 'admin');
+       
+        return View::make('home', compact('isAdmin', 'user'));
     }
 
     public function getUserProfile()
@@ -48,13 +52,11 @@ class DatabaseController extends BaseController
             $url = "http://localhost:8000/storage/$id/profilePicture.png";
         }
 
-        $data = [
-            'user'  => $user,
-            'blogs' => $blogs,
-            'url' => $url,
-        ];
+        $role = DB::table('users')->where('id', $id)->pluck('role');
+        $isAdmin = Str::contains($role, 'admin');
+       
+        return View::make('profile', compact('isAdmin', 'user', 'blogs', 'url', ));
 
-        return View::make('profile')->with($data);
     }
 
     public function getUserProfileToEdit()
@@ -69,13 +71,11 @@ class DatabaseController extends BaseController
             $url = "http://localhost:8000/storage/$id/profilePicture.png";
         }
 
-        $data = [
-            'user'  => $user,
-            'url' => $url,
-        ];
+        $role = DB::table('users')->where('id', $id)->pluck('role');
+        $isAdmin = Str::contains($role, 'admin');
+       
+        return View::make('profileEdit', compact('isAdmin', 'user', 'url'));
 
-
-        return View::make('profileEdit')->with($data);
     }
 
     public function save(Request $request)
@@ -97,13 +97,11 @@ class DatabaseController extends BaseController
             $url = "http://localhost:8000/storage/$id/profilePicture.png";
         }
 
-        $data = [
-            'user'  => $user,
-            'blogs' => $blogs,
-            'url' => $url,
-        ];
+        $role = DB::table('users')->where('id', $id)->pluck('role');
+        $isAdmin = Str::contains($role, 'admin');
+       
+        return View::make('profile', compact('isAdmin', 'user', 'blogs', 'url'));
 
-        return View::make('profile')->with($data);
     }
 
     public function logout(Request $request)

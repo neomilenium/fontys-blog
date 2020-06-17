@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use View;
 use Auth;
+use PDF;
 use Illuminate\Support\Str;
 
 class HomeController extends Controller
@@ -25,20 +26,28 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index(){
+    public function index()
+    {
         $users = DB::select('select * from users');
-        return view('home',['users'=>$users]);
-    }
-
-    public function showUsers(){
 
         $id = Auth::id();
         $role = DB::table('users')->where('id', $id)->pluck('role');
         $isAdmin = Str::contains($role, 'admin');
+
+        return View::make('home', compact('isAdmin', 'users'));
+    }
+
+    public function showUsers()
+    {
+
         $users = DB::table('users')->get();
 
-        return View::make('users', compact('isAdmin', 'users'));
+        $id = Auth::id();
+        $role = DB::table('users')->where('id', $id)->pluck('role');
+        $isAdmin = Str::contains($role, 'admin');
 
+        return View::make('users', compact('isAdmin', 'users'));
     }
+
+    
 }
-?>
