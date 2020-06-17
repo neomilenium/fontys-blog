@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use View;
+use Auth;
+use Illuminate\Support\Str;
 
 class HomeController extends Controller
 {
@@ -30,9 +32,12 @@ class HomeController extends Controller
 
     public function showUsers(){
 
+        $id = Auth::id();
+        $role = DB::table('users')->where('id', $id)->pluck('role');
+        $isAdmin = Str::contains($role, 'admin');
         $users = DB::table('users')->get();
 
-        return View::make('users')->with('users', $users);
+        return View::make('users', compact('isAdmin', 'users'));
 
     }
 }

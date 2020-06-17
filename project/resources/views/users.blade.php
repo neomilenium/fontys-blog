@@ -30,6 +30,7 @@
     </nav>
 
     <div class="content">
+        @if ($isAdmin)
         <div class="userBox">
             <h1>Users</h1>
             <table class="userTable">
@@ -38,7 +39,6 @@
                     <th style="width: 150px;">Name</th>
                     <th style="width: 150px;">Email</th>
                     <th style="width: 150px;">Role</th>
-                    <th style="width: 200px;"></th>
                 </tr>
                 @foreach($users as $user)
                 <tr>
@@ -50,5 +50,6 @@
                 @endforeach
             </table>
         </div>
+        @endif
     </div>
 </body>
