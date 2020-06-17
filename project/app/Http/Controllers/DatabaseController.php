@@ -115,5 +115,13 @@ class DatabaseController extends BaseController
         return redirect('/');
     }
 
+    public function showUsers(){
+
+        $users = DB::table('users')->get();
+
+        return View::make('users')->with('users', $users);
+
+    }
+
 }
 

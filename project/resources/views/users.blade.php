@@ -20,7 +20,6 @@
     <nav>
         <a href="/home"><b>Home</b></a>
         <a href="/blogs"><b>Blogs</b></a>
-        <a href="/users"><b>Users</b></a>
         <div class="nav-right">
             <a href="/profile"><b>Profile</b></a>
             <form style="display:inline-block;" method="POST" action="{{ action('DatabaseController@logout') }}">
@@ -32,7 +31,22 @@
 
     <div class="content">
         <div class="homeBox">
-            <h1>Hello {{ $user->name }} !</h1>
+            <h1>Users</h1>
+            <table class="userTable">
+                <tr>
+                    <th style="width: 50px;">ID</th>
+                    <th style="width: 150px;">Name</th>
+                    <th style="width: 150px;">Email</th>
+                    <th style="width: 200px;"></th>
+                </tr>
+                @foreach($users as $user)
+                <tr>
+                    <td>{{$user->id}}</td>
+                    <td>{{$user->name}}</td>
+                    <td>{{$user->email}}</td>
+                </tr>
+                @endforeach
+            </table>
         </div>
     </div>
 </body>
