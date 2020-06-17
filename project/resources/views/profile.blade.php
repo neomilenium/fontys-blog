@@ -52,7 +52,7 @@
 
                 @if ($blog->img_url != null)
                 <a href="{{ route('blog', ['id' => $blog->id]) }}">
-                    <img class="blogImage" src="{{$blog->img_url}}" alt="ProfilePicture" title="">
+                    <img style="object-fit: cover;" class="blogImage" src="{{$blog->img_url}}" alt="ProfilePicture" title="">
                 </a>
                 @endif
                 @endforeach
