@@ -112,6 +112,7 @@ nav a {
 
 .blogFlex a {
     text-decoration: none;
+    color: black;
 }
 
 .blogFlex a:visited {

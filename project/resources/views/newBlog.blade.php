@@ -22,7 +22,7 @@
         <a href="/blogs"><b>Blog</b></a>
         <div class="nav-right">
             <a href="/profile"><b>Profile</b></a>
-            <form style="display:inline-block;" method="POST" action="{{ action('DatabaseController@logout') }}">
+            <form style="display:inline-block;" method="POST" action="{{ action('DatabaseController@logout') }}" enctype="multipart/form-data">
                 @csrf
                 <button type="submit" class="logoutButton"><b>Logout</b></button>
             </form>

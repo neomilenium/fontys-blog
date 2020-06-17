@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\DB;
 use View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class BlogController extends BaseController
 {
@@ -49,6 +50,15 @@ class BlogController extends BaseController
             $request->file('blogPicture')->storeAs('/public/blogs/' . $id, $timestamp . '.png');
             $url = "http://localhost:8000/storage/blogs/$id/$timestamp.png";
             $blog->img_url = $url;
+
+            $img = Image::make($request->file('blogPicture')->getRealPath());
+             /* insert watermark at bottom-right corner with 10px offset */
+            $watermark = Image::make(public_path('storage/watermark.png'));
+            $watermark->resize(50, 50);
+            $img->insert($watermark, 'bottom-right', 5, 5);
+   
+             $img->save('storage/blogs/' . $id . '/' . $timestamp . '.png'); 
+
         }
 
         $blog->user_id = $id;
@@ -69,4 +79,6 @@ class BlogController extends BaseController
 
         return View::make('blogDetail')->with('blog', $blog);
     }
+
 }
+

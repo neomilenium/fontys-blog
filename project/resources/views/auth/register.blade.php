@@ -26,7 +26,7 @@
     </nav>
 
     <div class="content">
-        <div class="profileBox">
+        <div class="loginBox">
             <h1>Sign Up</h1>
             <form action="{{ route('register') }}" method="post">
                 @csrf
@@ -65,6 +65,7 @@
                     {{ __('Sign Up') }}
                 </button>
             </form>
+            <br><br>
         </div>
     </div>
 </body>
