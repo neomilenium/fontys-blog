@@ -36,6 +36,7 @@
         @if ($isAdmin)
         <div class="userBox">
             <h1>Users</h1>
+            <a href="/users/export"><b>Export</b></a>
             <table class="userTable">
                 <tr>
                     <th style="width: 50px;">ID</th>

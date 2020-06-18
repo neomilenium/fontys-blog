@@ -35,12 +35,11 @@
 
     <div class="content">
         <div class="blogTopBar">
-            <a href="{{ route('exportPdf', ['id' => $blog->id])}}" class="addBlog"><b>Export as PDF</b></a>
+            <a href="{{ route('exportPdf', ['id' => $blog->id]) }}" class="addBlog"><b>Export as PDF</b></a>
         </div>
 
 
         <div class="blog">
-            @if ($blog->img_url != null)
             <div class="blogFlex">
                 <div class="imageContainer">
                     <img class="blogImage" src="{{$blog->img_url}}" alt="ProfilePicture" title=""><br><br>
@@ -51,7 +50,6 @@
                     {{$blog->text}}
                 </div>
             </div>
-            @endif
 
         </div>
 

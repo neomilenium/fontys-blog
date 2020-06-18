@@ -101,12 +101,14 @@ class BlogController extends BaseController
     {
         $blog = DB::table('blogs')->where('id', '=', $blog_id)->first();
 
-        $id = Auth::id();
-        $blogs = DB::table('blogs')->where('user_id', '=', $id)->orderBy('created_at', 'desc')->get();
-        $role = DB::table('users')->where('id', $id)->pluck('role');
-        $isAdmin = Str::contains($role, 'admin');
-        
-        $pdf = PDF::loadView('blogAsPdf', compact('blog'));
+        $data = [
+            'name' => $blog->user_name,
+            'created_at' => $blog->created_at,
+            'title' => $blog->title,
+            'text' => $blog->text
+        ];
+      
+        $pdf = PDF::loadView('blogAsPdf', $data);
         
         $pdf->save(storage_path() . 'blog.pdf');
     

@@ -8,6 +8,9 @@ use View;
 use Auth;
 use PDF;
 use Illuminate\Support\Str;
+use App\Exports\UsersExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class HomeController extends Controller
 {
@@ -47,6 +50,11 @@ class HomeController extends Controller
         $isAdmin = Str::contains($role, 'admin');
 
         return View::make('users', compact('isAdmin', 'users'));
+    }
+
+    public function export() 
+    {
+        return Excel::download(new UsersExport, 'users.xlsx');
     }
 
     
