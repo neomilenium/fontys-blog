@@ -34,9 +34,12 @@
 
     <div class="content">
         @if ($isAdmin)
+        <div class="userTopBar">
+        <a href="/users/export"><button class="exportButton">Export</button></a>
+        </div>
         <div class="userBox">
             <h1>Users</h1>
-            <a href="/users/export"><b>Export</b></a>
+            
             <table class="userTable">
                 <tr>
                     <th style="width: 50px;">ID</th>
@@ -53,6 +56,7 @@
                 </tr>
                 @endforeach
             </table>
+            
         </div>
         @endif
     </div>
