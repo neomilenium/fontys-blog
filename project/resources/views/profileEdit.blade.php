@@ -38,7 +38,19 @@
     <div class="content">
         <div class="profileEditBox">
             <h1>Profile</h1>
-            <img style="width: 200px; border-radius: 50%; border: 1px solid black;" src="{{url('/storage/'.$id.'/profilePicture.png')}}" alt="No picture uploaded yet!" title=""><br><br>
+            <?php
+            if (file_exists(public_path() . '/storage/' . $user->id . '/profilePicture.png')) {
+                $exists = true;
+            } else {
+                $exists = false;
+            }
+            ?>
+            @if($exists)
+            <img style="width: 200px; border-radius: 50%; border: 1px solid black;" src="{{url('/storage/'.$id.'/profilePicture.png')}}" alt="ProfilePicture" title=""><br><br>
+            @else
+            <img style="max-width: 200px; border-radius: 50%; border: 1px solid black;" src="{{url('/storage/profilePicture.png')}}" alt="ProfilePicture" title=""><br><br>
+            @endif
+
             <form action="{{action('DatabaseController@save')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="id" value="{{ $user->id }}" <input type="file" name="profilePicture" class="profilePictureInput">

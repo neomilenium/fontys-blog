@@ -39,7 +39,19 @@
         <div class="profileBox">
             <div class="profileContainer">
                 <h1>Profile</h1>
-                <img style="max-width: 200px; border-radius: 50%; border: 1px solid black;" src="{{url('/storage/'.$user->id.'/profilePicture.png')}}" alt="No picture uploaded yet!" title=""><br><br>
+                <?php
+                    if (file_exists( public_path() . '/storage/'.$user->id.'/profilePicture.png')) {
+                        $exists = true;
+                    } else {
+                        $exists = false;
+                    } 
+                ?>
+                @if($exists)
+                    <img style="max-width: 200px; border-radius: 50%; border: 1px solid black;" src="{{url('/storage/'.$user->id.'/profilePicture.png')}}" alt="ProfilePicture" title=""><br><br>
+                @else
+                    <img style="max-width: 200px; border-radius: 50%; border: 1px solid black;" src="{{url('/storage/profilePicture.png')}}" alt="ProfilePicture" title=""><br><br>
+                @endif
+               
                 <table align="center">
                     <tr>
                         <td style="width: 100px;"><b>Name:</b></td>

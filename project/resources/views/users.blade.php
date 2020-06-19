@@ -58,7 +58,7 @@
                 <tr>
                     <td>{{$user->id}}</td>
                     <td><a href="{{ route('profile', [$id => $id]) }}"><b>{{$user->name}}</b></td>
-                    <td>{{$user->email}}</td>
+                    <td><a href="mailto:{{$user->email}}">{{$user->email}}</a></td>
                     <td>{{$user->role}}</td>
 
                     <td>
