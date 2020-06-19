@@ -24,7 +24,10 @@
         <a href="/users"><b>Users</b></a>
         @endif
         <div class="nav-right">
-            <a href="/profile"><b>Profile</b></a>
+            <?php
+            $currentID = Auth::id();
+            ?>
+            <a href="{{ route('profile', ['id' => $currentID]) }}"><b>Profile</b></a>
             <form style="display:inline-block;" method="POST" action="{{ action('DatabaseController@logout') }}">
                 @csrf
                 <button type="submit" class="logoutButton"><b>Logout</b></button>
@@ -35,36 +38,37 @@
     <div class="content">
         @if ($isAdmin)
         <div class="userTopBar">
-        <a href="/users/export"><button class="exportButton">Export as Excel</button></a>
+            <a href="/users/export"><button class="exportButton">Export as Excel</button></a>
         </div>
         <div class="userBox">
             <h1>Users</h1>
-            
+
             <table class="userTable">
                 <tr>
                     <th style="width: 50px;">ID</th>
                     <th style="width: 150px;">Name</th>
                     <th style="width: 150px;">Email</th>
                     <th style="width: 150px;">Role</th>
-                    <th style="width: 100px;"></th>
+                    <th style="width: 150px;"></th>
                 </tr>
                 @foreach($users as $user)
+                <?php
+                $id = $user->id
+                ?>
                 <tr>
                     <td>{{$user->id}}</td>
-                    <td>{{$user->name}}</td>
+                    <td><a href="{{ route('profile', [$id => $id]) }}"><b>{{$user->name}}</b></td>
                     <td>{{$user->email}}</td>
                     <td>{{$user->role}}</td>
-                    <?php
-                        $id = $user->id
-                    ?>
+
                     <td>
-                        <a href="{{ route('profileEdit', [$id => $id]) }}" class="deleteButton">Edit</a>
-                        <a href="{{ route('deleteUser', [$id => $id]) }}" class="deleteButton">Delete</a>
+                        <a style="color: #FFFFFF;" href="{{ route('profileEdit', [$id => $id]) }}" class="deleteButton">Edit</a>
+                        <a style="color: #FFFFFF;" href="{{ route('deleteUser', [$id => $id]) }}" class="deleteButton">Delete</a>
                     </td>
                 </tr>
                 @endforeach
             </table>
-            
+
         </div>
         @endif
     </div>

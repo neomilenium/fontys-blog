@@ -24,7 +24,10 @@
         <a href="/users"><b>Users</b></a>
         @endif
         <div class="nav-right">
-            <a href="/profile"><b>Profile</b></a>
+            <?php
+            $currentID = Auth::id();
+            ?>
+            <a href="{{ route('profile', ['id' => $currentID]) }}"><b>Profile</b></a>
             <form style="display:inline-block;" method="POST" action="{{ action('DatabaseController@logout') }}">
                 @csrf
                 <button type="submit" class="logoutButton"><b>Logout</b></button>
@@ -38,8 +41,7 @@
             <img style="width: 200px; border-radius: 50%; border: 1px solid black;" src="{{url('/storage/'.$id.'/profilePicture.png')}}" alt="No picture uploaded yet!" title=""><br><br>
             <form action="{{action('DatabaseController@save')}}" method="post" enctype="multipart/form-data">
                 @csrf
-                <input type="hidden" name="id" value="{{ $user->id }}"
-                <input type="file" name="profilePicture" class="profilePictureInput">
+                <input type="hidden" name="id" value="{{ $user->id }}" <input type="file" name="profilePicture" class="profilePictureInput">
                 <table align="center">
                     <tr>
                         <td style="width: 100px;"><b>Name:</b></td>

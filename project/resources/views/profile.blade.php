@@ -24,7 +24,10 @@
         <a href="/users"><b>Users</b></a>
         @endif
         <div class="nav-right">
-            <a href="/profile"><b>Profile</b></a>
+            <?php
+            $currentID = Auth::id();
+            ?>
+            <a href="{{ route('profile', ['id' => $currentID]) }}"><b>Profile</b></a>
             <form style="display:inline-block;" method="POST" action="{{ action('DatabaseController@logout') }}">
                 @csrf
                 <button type="submit" class="logoutButton"><b>Logout</b></button>
@@ -36,7 +39,7 @@
         <div class="profileBox">
             <div class="profileContainer">
                 <h1>Profile</h1>
-                <img style="max-width: 200px; border-radius: 50%; border: 1px solid black;" src="{{url('/storage/'.$id.'/profilePicture.png')}}" alt="No picture uploaded yet!" title=""><br><br>
+                <img style="max-width: 200px; border-radius: 50%; border: 1px solid black;" src="{{url('/storage/'.$user->id.'/profilePicture.png')}}" alt="No picture uploaded yet!" title=""><br><br>
                 <table align="center">
                     <tr>
                         <td style="width: 100px;"><b>Name:</b></td>
@@ -49,7 +52,7 @@
                 </table>
                 <br><br>
                 <?php
-                    $id = $user->id
+                $id = $user->id
                 ?>
                 <a href="{{ route('profileEdit', [$id => $id]) }}" class="editButton">Edit</a>
             </div>

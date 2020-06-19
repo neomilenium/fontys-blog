@@ -24,7 +24,10 @@
         <a href="/users"><b>Users</b></a>
         @endif
         <div class="nav-right">
-            <a href="/profile"><b>Profile</b></a>
+            <?php
+            $currentID = Auth::id();
+            ?>
+            <a href="{{ route('profile', ['id' => $currentID]) }}"><b>Profile</b></a>
             <form style="display:inline-block;" method="POST" action="{{ action('DatabaseController@logout') }}" enctype="multipart/form-data">
                 @csrf
                 <button type="submit" class="logoutButton"><b>Logout</b></button>

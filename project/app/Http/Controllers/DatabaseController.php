@@ -52,7 +52,8 @@ class DatabaseController extends BaseController
             $url = "http://localhost:8000/storage/$id/profilePicture.png";
         }
 
-        $role = DB::table('users')->where('id', $id)->pluck('role');
+        $user_id = Auth::id();
+        $role = DB::table('users')->where('id', $user_id)->pluck('role');
         $isAdmin = Str::contains($role, 'admin');
        
         return View::make('profile', compact('isAdmin', 'user', 'blogs', 'id', ));
@@ -70,7 +71,8 @@ class DatabaseController extends BaseController
             $url = "http://localhost:8000/storage/$id/profilePicture.png";
         }
 
-        $role = DB::table('users')->where('id', $id)->pluck('role');
+        $user_id = Auth::id();
+        $role = DB::table('users')->where('id', $user_id)->pluck('role');
         $isAdmin = Str::contains($role, 'admin');
        
         return View::make('profileEdit', compact('isAdmin', 'user', 'id'));
@@ -96,7 +98,8 @@ class DatabaseController extends BaseController
             $url = "http://localhost:8000/storage/$id/profilePicture.png";
         }
 
-        $role = DB::table('users')->where('id', $id)->pluck('role');
+        $user_id = Auth::id();
+        $role = DB::table('users')->where('id', $user_id)->pluck('role');
         $isAdmin = Str::contains($role, 'admin');
        
         return View::make('profile', compact('isAdmin', 'user', 'blogs', 'id', 'name'));

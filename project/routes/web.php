@@ -36,7 +36,7 @@ Route::get('deleteUser/{id}', ["uses" => '\App\Http\Controllers\HomeController@d
 
 
 
-Route::get('/profile', '\App\Http\Controllers\DatabaseController@getUserProfile');
+Route::get('/profile/{id}', ["uses" =>  '\App\Http\Controllers\DatabaseController@getUserProfile', "as" => 'profile']);
 Route::get('/profileEdit/{id}', ["uses" => '\App\Http\Controllers\DatabaseController@getUserProfileToEdit', "as" => 'profileEdit']);
 Route::post('/profileChanged', '\App\Http\Controllers\DatabaseController@save');
 
