@@ -39,11 +39,12 @@
         <div class="profileEditBox">
             <h1>Profile</h1>
             <?php
-            if (file_exists(public_path() . '/storage/' . $user->id . '/profilePicture.png')) {
+            $id = $user->id;
+            if (file_exists( public_path() . '/storage/'.$user->id.'/profilePicture.png')) {
                 $exists = true;
             } else {
                 $exists = false;
-            }
+            } 
             ?>
             @if($exists)
             <img style="width: 200px; border-radius: 50%; border: 1px solid black;" src="{{url('/storage/'.$id.'/profilePicture.png')}}" alt="ProfilePicture" title=""><br><br>
@@ -53,7 +54,8 @@
 
             <form action="{{action('DatabaseController@save')}}" method="post" enctype="multipart/form-data">
                 @csrf
-                <input type="hidden" name="id" value="{{ $user->id }}" <input type="file" name="profilePicture" class="profilePictureInput">
+                <input type="hidden" name="id" value="{{$user->id}}">
+                <input type="file" name="profilePicture" class="profilePictureInput">
                 <table align="center">
                     <tr>
                         <td style="width: 100px;"><b>Name:</b></td>

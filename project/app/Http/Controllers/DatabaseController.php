@@ -84,19 +84,12 @@ class DatabaseController extends BaseController
         $id = $request->id;
         $name = $request->name;
         if ($request->hasFile('profilePicture')) {
-            $request->file('profilePicture')->storeAs('/public/'.$id, 'profilePicture.png');
+            $request->file('profilePicture')->storeAs('public/'.$id, 'profilePicture.png');
         }
        
         DB::table('users')->where('id', $id)->update(['name' => $name]);
         $user = DB::table('users')->where('id', $id)->first();
         $blogs = DB::table('blogs')->where('user_id', '=', $id)->orderBy('created_at', 'desc')->get();
-
-        $url = "http://localhost:8000/storage/profilePicture.png";
-        $exists = Storage::disk('public')->exists('profilePicture.png');
-        if ($exists) {
-            $pictureUploaded = true;
-            $url = "http://localhost:8000/storage/$id/profilePicture.png";
-        }
 
         $user_id = Auth::id();
         $role = DB::table('users')->where('id', $user_id)->pluck('role');
