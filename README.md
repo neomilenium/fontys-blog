@@ -26,6 +26,7 @@ There is also the option to create a new user by using the sign up function.
 * If no profile picture is uploaded, a default profile picture appears.
 * The profile picture is a circle no matter what size or shape the uploaded image is.
 * Hovering over the blog image on the main blog site, will make it blurr.
+* All images are watermarked with the symbol of the website (japanese cherry blossom).
 
 ## Testing
 * All users can be accessed by their email address and the password '12345678'.
