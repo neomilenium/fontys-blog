@@ -3,12 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>Blog</title>
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 </head>
 
 <body>
@@ -16,7 +11,7 @@
         <div class="blog">
             <div class="blogFlex">
                 <div class="imageContainer">
-                    <img class="blogImage" src="{{$blog->img_url}}" alt="ProfilePicture" title=""><br><br>
+                    <img class="blogImage" src="{{url('/storage/blogs/'.$id.'/'.$created_at.'.png')}}"><br><br>
                 </div>
                 <div class="textContainer">
                     {{$name}}, {{$created_at}}

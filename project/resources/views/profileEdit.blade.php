@@ -35,9 +35,10 @@
     <div class="content">
         <div class="profileEditBox">
             <h1>Profile</h1>
-            <img style="max-width: 200px; max-height: 200px; border-radius: 50%; border: 1px solid black;" src="{{$url}}" alt="ProfilePicture" title=""><br><br>
+            <img style="width: 200px; border-radius: 50%; border: 1px solid black;" src="{{url('/storage/'.$id.'/profilePicture.png')}}" alt="No picture uploaded yet!" title=""><br><br>
             <form action="{{action('DatabaseController@save')}}" method="post" enctype="multipart/form-data">
                 @csrf
+                <input type="hidden" name="id" value="{{ $user->id }}"
                 <input type="file" name="profilePicture" class="profilePictureInput">
                 <table align="center">
                     <tr>

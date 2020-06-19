@@ -44,7 +44,7 @@
             <div class="blogFlex">
                 <div class="imageContainer">
                     <a href="{{ route('blog', ['id' => $blog->id]) }}">
-                        <img class="blogImageWithBlur" src="{{$blog->img_url}}" alt="ProfilePicture" title="">
+                        <img class="blogImageWithBlur" src="{{url('/storage/blogs/'.$id.'/'.$blog->created_at.'.png')}}" alt="ProfilePicture" title="">
                     </a>
                     <br><br>
                 </div>

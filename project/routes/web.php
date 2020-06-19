@@ -26,14 +26,18 @@ Route::get('/createNewBlog', '\App\Http\Controllers\BlogController@newBlog');
 Route::any('/blogCreated', '\App\Http\Controllers\BlogController@create');
 Route::get('blog/{id}', ["uses" => '\App\Http\Controllers\BlogController@showBlog', "as" => 'blog']);
 Route::get('/blog/pdf/{id}', ["uses" => '\App\Http\Controllers\BlogController@exportPdf', "as" => 'exportPdf']);
-Route::get('/customer/print-pdf', [ 'as' => 'customer.printpdf', 'uses' => 'CustomerController@printPDF']);
+Route::get('/blogAsPdf', function($data) {
+    return view('blogAsPdf', $data);
+});
 
 Route::get('/users', '\App\Http\Controllers\HomeController@showUsers');
 Route::get('users/export/', '\App\Http\Controllers\HomeController@export');
+Route::get('deleteUser/{id}', ["uses" => '\App\Http\Controllers\HomeController@deleteUser', "as" => 'deleteUser']);
+
 
 
 Route::get('/profile', '\App\Http\Controllers\DatabaseController@getUserProfile');
-Route::get('/profileEdit', '\App\Http\Controllers\DatabaseController@getUserProfileToEdit');
+Route::get('/profileEdit/{id}', ["uses" => '\App\Http\Controllers\DatabaseController@getUserProfileToEdit', "as" => 'profileEdit']);
 Route::post('/profileChanged', '\App\Http\Controllers\DatabaseController@save');
 
 Route::post('Logout', '\App\Http\Controllers\DatabaseController@logout');

@@ -39,9 +39,9 @@ class DatabaseController extends BaseController
         return View::make('home', compact('isAdmin', 'user'));
     }
 
-    public function getUserProfile()
+    public function getUserProfile($id)
     {
-        $id = Auth::id();
+
         $user = DB::table('users')->where('id', $id)->first();
         $blogs = DB::table('blogs')->where('user_id', '=', $id)->orderBy('created_at', 'desc')->get();
         
@@ -55,13 +55,12 @@ class DatabaseController extends BaseController
         $role = DB::table('users')->where('id', $id)->pluck('role');
         $isAdmin = Str::contains($role, 'admin');
        
-        return View::make('profile', compact('isAdmin', 'user', 'blogs', 'url', ));
+        return View::make('profile', compact('isAdmin', 'user', 'blogs', 'id', ));
 
     }
 
-    public function getUserProfileToEdit()
+    public function getUserProfileToEdit($id)
     {
-        $id = Auth::id();
         $user = DB::table('users')->where('id', $id)->first();
 
         $url = "http://localhost:8000/storage/profilePicture.png";
@@ -74,13 +73,13 @@ class DatabaseController extends BaseController
         $role = DB::table('users')->where('id', $id)->pluck('role');
         $isAdmin = Str::contains($role, 'admin');
        
-        return View::make('profileEdit', compact('isAdmin', 'user', 'url'));
+        return View::make('profileEdit', compact('isAdmin', 'user', 'id'));
 
     }
 
     public function save(Request $request)
     {
-        $id = Auth::id();
+        $id = $request->id;
         $name = $request->name;
         if ($request->hasFile('profilePicture')) {
             $request->file('profilePicture')->storeAs('/public/'.$id, 'profilePicture.png');
@@ -100,7 +99,7 @@ class DatabaseController extends BaseController
         $role = DB::table('users')->where('id', $id)->pluck('role');
         $isAdmin = Str::contains($role, 'admin');
        
-        return View::make('profile', compact('isAdmin', 'user', 'blogs', 'url'));
+        return View::make('profile', compact('isAdmin', 'user', 'blogs', 'id', 'name'));
 
     }
 

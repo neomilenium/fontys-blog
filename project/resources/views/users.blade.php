@@ -35,7 +35,7 @@
     <div class="content">
         @if ($isAdmin)
         <div class="userTopBar">
-        <a href="/users/export"><button class="exportButton">Export</button></a>
+        <a href="/users/export"><button class="exportButton">Export as Excel</button></a>
         </div>
         <div class="userBox">
             <h1>Users</h1>
@@ -46,6 +46,7 @@
                     <th style="width: 150px;">Name</th>
                     <th style="width: 150px;">Email</th>
                     <th style="width: 150px;">Role</th>
+                    <th style="width: 100px;"></th>
                 </tr>
                 @foreach($users as $user)
                 <tr>
@@ -53,6 +54,13 @@
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
                     <td>{{$user->role}}</td>
+                    <?php
+                        $id = $user->id
+                    ?>
+                    <td>
+                        <a href="{{ route('profileEdit', [$id => $id]) }}" class="deleteButton">Edit</a>
+                        <a href="{{ route('deleteUser', [$id => $id]) }}" class="deleteButton">Delete</a>
+                    </td>
                 </tr>
                 @endforeach
             </table>

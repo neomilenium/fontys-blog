@@ -10,6 +10,7 @@ use PDF;
 use Illuminate\Support\Str;
 use App\Exports\UsersExport;
 use Maatwebsite\Excel\Facades\Excel;
+use App\User;
 
 
 class HomeController extends Controller
@@ -55,6 +56,19 @@ class HomeController extends Controller
     public function export() 
     {
         return Excel::download(new UsersExport, 'users.xlsx');
+    }
+
+    public function deleteUser ($id){
+        $user = User::find($id);    
+        $user->delete();
+
+        $users = DB::table('users')->get();
+
+        $id = Auth::id();
+        $role = DB::table('users')->where('id', $id)->pluck('role');
+        $isAdmin = Str::contains($role, 'admin');
+
+        return View::make('users', compact('isAdmin', 'users'));
     }
 
     

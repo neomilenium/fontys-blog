@@ -36,7 +36,7 @@
         <div class="profileBox">
             <div class="profileContainer">
                 <h1>Profile</h1>
-                <img style="max-width: 200px; border-radius: 50%; border: 1px solid black;" src="{{$url ?? ''}}" alt="ProfilePicture" title=""><br><br>
+                <img style="max-width: 200px; border-radius: 50%; border: 1px solid black;" src="{{url('/storage/'.$id.'/profilePicture.png')}}" alt="No picture uploaded yet!" title=""><br><br>
                 <table align="center">
                     <tr>
                         <td style="width: 100px;"><b>Name:</b></td>
@@ -48,7 +48,10 @@
                     </tr>
                 </table>
                 <br><br>
-                <a href="/profileEdit" class="editButton">Edit</a>
+                <?php
+                    $id = $user->id
+                ?>
+                <a href="{{ route('profileEdit', [$id => $id]) }}" class="editButton">Edit</a>
             </div>
             <div class="blogContainer">
                 @foreach($blogs as $blog)
