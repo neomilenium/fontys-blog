@@ -23,10 +23,17 @@ class BlogController extends BaseController
     public function index()
     {
         $id = Auth::id();
-        $blogs = DB::table('blogs')->where('user_id', '=', $id)->orderBy('created_at', 'desc')->get();
-
         $role = DB::table('users')->where('id', $id)->pluck('role');
         $isAdmin = Str::contains($role, 'admin');
+
+        if ($isAdmin) {
+            $blogs = DB::table('blogs')->orderBy('created_at', 'desc')->get();
+        } else {
+            $blogs = DB::table('blogs')->where('user_id', '=', $id)->orderBy('created_at', 'desc')->get();
+        }
+       
+
+     
 
         return View::make('blog', compact('isAdmin', 'blogs', 'id'));
     }

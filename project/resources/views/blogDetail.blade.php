@@ -45,7 +45,7 @@
         <div class="blog">
             <div class="blogFlex">
                 <div class="imageContainer">
-                    <img class="blogImage" src="{{url('/storage/blogs/'.$id.'/'.$blog->created_at.'.png')}}" alt="ProfilePicture" title=""><br><br>
+                    <img class="blogImage" src="{{url('/storage/blogs/'.$blog->user_id.'/'.$blog->created_at.'.png')}}" alt="ProfilePicture" title=""><br><br>
                 </div>
                 <div class="textContainer">
                     {{$blog->user_name}}, {{$blog->created_at}}
